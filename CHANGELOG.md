@@ -51,4 +51,4 @@ All changes to the kit are recorded here. Format: version · date · what change
 ## v1.0.2 · 2026-11-17 · by Dimitar Bidzhekov
 - Security check before publishing: no email addresses, passwords, API keys or tokens, private links (Drive, Vercel, Supabase), personal social handles or other people's names in any file, inside the skill zips, in the presentation's file properties or in the commit history. Commits use GitHub's no-reply address.
 - Fixed: presentation/build-deck.js contained file paths from the build machine; replaced them with portable settings.
-- Repository published publicly with a description and topics.
+- Repository published publicly. The description and topics are set by hand on GitHub (this session cannot change repository settings).
