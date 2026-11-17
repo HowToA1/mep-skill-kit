@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEP Skill Kit for Bulgaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a delegate's briefing binder. Ink-blue header with a thin Bulgarian tricolour rule, numbered skill tabs, and tables for the plan and models. */
+:root{
+  --ink:#14213d; --paper:#f6f7f9; --surface:#ffffff; --line:#d9dee7; --muted:#5b6475;
+  --accent:#c8961a; --bg-green:#00966e; --bg-red:#d62612;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--ink:#e8ecf4;--paper:#0f1626;--surface:#162037;--line:#2a3654;--muted:#9aa5bb;--accent:#e2b54a;color-scheme:dark;}
+}
+:root[data-theme="dark"]{--ink:#e8ecf4;--paper:#0f1626;--surface:#162037;--line:#2a3654;--muted:#9aa5bb;--accent:#e2b54a;color-scheme:dark;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--body)}
+header{background:#14213d;color:#f6f7f9;padding:40px 20px 28px}
+.rule{height:6px;background:linear-gradient(to bottom,#ffffff 0 33%,var(--bg-green) 33% 66%,var(--bg-red) 66%)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header .wrap{padding:0}
+.eyebrow{font:600 13px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#e2b54a}
+h1{font:800 clamp(30px,5vw,48px)/1.08 var(--display);margin:10px 0 12px;text-wrap:balance}
+header p{max-width:62ch;color:#cfd6e4;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{border:1px solid #3a4a72;border-radius:999px;padding:3px 12px;font-size:14px;color:#dfe5f0}
+h2{font:800 26px/1.2 var(--display);margin:44px 0 6px;text-wrap:balance}
+.lead{color:var(--muted);max-width:68ch;margin:0 0 18px}
+ol.steps{display:grid;gap:10px;padding:0;margin:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 54px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:11px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#14213d;font:800 15px/28px var(--display);text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card .top{display:flex;align-items:baseline;gap:10px}
+.num{font:800 22px/1 var(--display);color:var(--accent);min-width:28px}
+.card h3{margin:0;font:600 16px/1.3 var(--mono)}
+.card p{margin:0}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:4px 10px;font-size:15px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.model{display:inline-block;border-radius:6px;padding:0 7px;font-size:14px;font-weight:600;border:1px solid var(--line)}
+.m-fable{background:#2c1f54;color:#fff;border-color:#2c1f54}
+.m-opus{background:#14213d;color:#fff;border-color:#14213d}
+.m-sonnet{background:#e7eefb;color:#14213d}
+.m-haiku{background:#fdf3d8;color:#14213d}
+.try{margin-top:auto;border-top:1px dashed var(--line);padding-top:8px;font-size:15px}
+.try q{display:block;font-style:italic;color:var(--muted);margin:2px 0 6px}
+button.copy{font:600 13px var(--body);border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;padding:3px 10px;cursor:pointer}
+button.copy:hover{border-color:var(--accent)}
+button.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 13px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td code,p code{font:14px var(--mono)}
+.rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;padding:0;list-style:none}
+.rules li{background:var(--surface);border-left:4px solid var(--accent);border-radius:6px;padding:10px 12px}
+footer{margin:48px 0 0;padding:20px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (max-width:420px){.kv{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Delegation of Bulgaria · 64th iMEP Porto · 19–26 November 2026</div>
+    <h1>MEP Skill Kit: 12 Claude skills for any committee topic</h1>
+    <p>From the moment your committee topic arrives to the final vote: research, Bulgaria's position, resolution drafting, red-teaming, amendments, speeches, practice, live answers, fact-checking, lobbying, session tracking and the debrief.</p>
+    <div class="meta"><span class="chip">v1.0 · 17 Nov 2026</span><span class="chip">Facts verified 17 Nov 2026</span><span class="chip">by Dimitar Bidzhekov</span></div>
+  </div>
+</header>
+<div class="rule" role="presentation"></div>
+
+<main class="wrap">
+  <h2>Install in five minutes</h2>
+  <p class="lead">You'll receive 12 <code>.zip</code> files (one per skill) plus a full bundle. Upload the 12 single zips; don't unzip them.</p>
+  <ol class="steps">
+    <li>In Claude open <b>Settings → Capabilities</b> and switch on <b>Code execution and file creation</b>. Skills need it.</li>
+    <li>Go to <b>Customize → Skills</b>, click <b>+</b>, then <b>Create skill → Upload a skill</b>.</li>
+    <li>Upload each zip, one at a time, until all 12 appear in your list, switched on.</li>
+    <li>Turn on <b>web search</b> in your chat. Most skills check facts live.</li>
+    <li>Create a <b>Project</b> called “iMEP Porto — Bulgaria” and add the study guide, the session handbook and your position paper. Every chat in it starts with your context.</li>
+  </ol>
+  <p class="lead" style="margin-top:12px">You never have to name a skill. Just ask naturally and Claude picks the right one. Naming one (“use mep-red-team on this”) also works.</p>
+
+  <h2>The twelve skills</h2>
+  <p class="lead">Each card says what the skill does, when to use it, which model to pick, and a prompt to start with.</p>
+  <div class="grid" id="skills"></div>
+
+  <h2>Which model, and why</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Model</th><th>Use it for</th><th>Skills</th></tr></thead>
+    <tbody>
+      <tr><td><span class="model m-fable">Fable 5.2</span></td><td>Top tier, if your plan includes it. The hardest reasoning: tearing apart the final resolution before the General Assembly.</td><td>Red team, final resolution check</td></tr>
+      <tr><td><span class="model m-opus">Opus 5.5</span></td><td>Thinking-heavy work: research, drafting, strategy. Turn on extended thinking for drafting and red-teaming.</td><td>Briefing, position, resolution, red team, fact-check, lobbying</td></tr>
+      <tr><td><span class="model m-sonnet">Sonnet 5.5</span></td><td>Fast, high-quality writing and practice. The everyday default.</td><td>Speeches, sparring, amendments, tracker, debrief</td></tr>
+      <tr><td><span class="model m-haiku">Haiku 5.5</span></td><td>Speed above all, on your phone during the session.</td><td>Live copilot, rapid-fire drills, quick logging</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>The eight-day game plan</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>When</th><th>Do this</th><th>Skills, in order</th></tr></thead>
+    <tbody>
+      <tr><td>Before departure (now–18 Nov)</td><td>Install, build the Project, rehearse the head-of-delegation intro out loud (voice mode)</td><td>2 → 6 → 7</td></tr>
+      <tr><td>Topic arrives</td><td>Crash study pack, then the full pack, then Bulgaria's stance and a clause bank</td><td>1 → 2 → 3</td></tr>
+      <tr><td>Committee days</td><td>Draft together, then stress-test, fact-check, fix and negotiate</td><td>3 → 4 → 9 → 10</td></tr>
+      <tr><td>Lobbying</td><td>Attack other committees' resolutions, write amendments, count votes</td><td>4 (attack mode) → 5 → 10</td></tr>
+      <tr><td>Each evening</td><td>Drill tomorrow's hardest questions, then a 5-minute check-in</td><td>7 → 12</td></tr>
+      <tr><td>General Assembly</td><td>Live answers, amendment responses, closing-speech slots, logging every vote</td><td>8 → 5 → 6 → 11</td></tr>
+      <tr><td>After 26 Nov</td><td>Statistics, report, handover for the next delegation, posts, kit feedback</td><td>11 → 12</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Rules that make you look better, not worse</h2>
+  <ul class="rules">
+    <li><b>The session's rules win.</b> If pre-written resolutions aren't allowed, the drafter builds a clause bank instead.</li>
+    <li><b>Understand every word you say.</b> Each skill explains its reasoning. Read it.</li>
+    <li><b>Every number gets a date and a source.</b> Run the fact-checker before you speak.</li>
+    <li><b>Respect device rules in plenary.</b> If phones aren't allowed, use the copilot in breaks.</li>
+    <li><b>Privacy:</b> don't log or post other students' names or photos without their permission.</li>
+    <li><b>Bulgaria's sensitive issues</b> (Russia and Ukraine, North Macedonia, the euro) are handled with official wording only.</li>
+  </ul>
+
+  <footer>
+    MEP Skill Kit v1.0 · built 17 November 2026 · by Dimitar Bidzhekov for the Bulgarian delegation to the 64th International Model European Parliament, Porto. Facts on EU powers, MEP procedure and Bulgaria (government, President, euro) were verified on 17 Nov 2026; the skills re-check anything time-sensitive. Version history is in CHANGELOG.md inside the bundle.
+  </footer>
+</main>
+
+<script>
+const skills = [
+ ["mep-topic-briefing","Turns any committee topic into a study pack: which EU powers apply, existing laws and proposals, dated stats, the political divides, Bulgaria's angle, and the 10 questions your committee will fight about.","The minute your topic arrives (crash mode), then standard, then deep","opus","sonnet","Web search on; Research mode for deep","We got our topic: [paste the committee and question]. Crash mode first, please."],
+ ["mep-bulgaria-position","Bulgaria's position paper: data, the government's documented stance (labelled stated, policy record or inferred), 3 asks, red lines, allies, hard questions, and the head-of-delegation intro.","Right after the briefing","opus","sonnet","Web search on","Build Bulgaria's position on [topic]: who are our allies, and what will they attack us on?"],
+ ["mep-resolution","A clause bank before the session; during committee work, correct MEP formatting (ICs A, B, C; OCs 1, 2, 3) plus a clause-defence table. Every clause gets an actor, a lever, a timeline and a metric.","Prep, then committee days","opus","sonnet","Extended thinking on","Here's what our committee agreed: [notes]. Turn it into a proper MEP resolution with a defence table."],
+ ["mep-red-team","Scores a resolution out of 40 on 8 criteria, ranks the most dangerous weaknesses, predicts the speech against word for word, and rewrites weak clauses. Attack mode finds openings in other committees' texts.","After every draft; the lobbying phase","fable","opus","Extended thinking + web search","Red-team our resolution like the toughest delegate in the room: [paste]"],
+ ["mep-amendments","Writes amendments in the right format with a justification and a 60–90 second defence; drafts the 2-minute committee response; fast mode for the floor.","Lobbying and the General Assembly","sonnet","haiku","—","Write an amendment to OC 5 of the ENVI resolution that fixes the funding gap: [paste OC]"],
+ ["mep-speeches","Timed speeches (intro, opening, against, closing with live slots, amendment), with word count, estimated time, delivery marks and backup lines.","Before each speaking slot","sonnet","haiku","Opus 5.5 for final polish","Write a 3-minute opening speech for our resolution. Core message: [one sentence]."],
+ ["mep-sparring","A practice partner playing 8 tough personas (the Lawyer, the Treasurer, the Sceptic...). One question at a time; each answer scored out of 10 with a model answer.","Evenings and before the GA","sonnet","haiku","Try voice mode and answer out loud","Grill me on our resolution, difficulty 3. One question at a time."],
+ ["mep-live-copilot","An answer of 45 words or fewer, one dated fact, an \"if pressed\" line, a counter-question or the right procedural move, in seconds.","Breaks and committee work during the session","haiku","sonnet","Phone app; respect device rules","Quick: the French delegate says our plan has no legal basis. What do I answer?"],
+ ["mep-fact-check","A verdict on every claim (correct, outdated, misleading, wrong or unverifiable), the correct version with date and source, and safe wording. Also checks opponents' claims.","Before any speech or clause, and when someone quotes a number","opus","sonnet","Web search on (required)","Fact-check every number in this speech before I deliver it: [paste]"],
+ ["mep-lobbying","Interest maps, compromise wording, merged clauses, vote counts per delegation, and 3-sentence pitches to win swing delegations.","Committee deadlocks; before the GA","opus","sonnet","—","Germany and Italy disagree on OC 3. Find wording both can sign, and count our votes."],
+ ["mep-session-tracker","Turns quick notes into a structured session record (JSON) with statistics: pass rates, margins, how often the plenary followed the committee, and who votes with Bulgaria.","Throughout the session","sonnet","haiku","Code execution on (for stats)","Log: AFET resolution passed 98-41-12, we voted for."],
+ ["mep-debrief","5-minute evening check-ins, a full session report, a handover for the next Bulgarian delegation, honest posts, and feedback that improves this kit.","Every evening and after 26 Nov","sonnet","haiku","—","Debrief today with me, then plan tomorrow."]
+];
+const names = {fable:"Fable 5.2",opus:"Opus 5.5",sonnet:"Sonnet 5.5",haiku:"Haiku 5.5"};
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+document.getElementById("skills").innerHTML = skills.map((s,i)=>`
+ <article class="card">
+  <div class="top"><span class="num">${String(i+1).padStart(2,"0")}</span><h3>${s[0]}</h3></div>
+  <p>${esc(s[1])}</p>
+  <dl class="kv">
+   <dt>When</dt><dd>${esc(s[2])}</dd>
+   <dt>Best model</dt><dd><span class="model m-${s[3]}">${names[s[3]]}</span></dd>
+   <dt>Alternative</dt><dd><span class="model m-${s[4]}">${names[s[4]]}</span></dd>
+   <dt>Settings</dt><dd>${esc(s[5])}</dd>
+  </dl>
+  <div class="try">Try:<q>${esc(s[6])}</q><button class="copy" type="button" data-p="${esc(s[6])}">Copy prompt</button></div>
+ </article>`).join("");
+document.addEventListener("click", async e => {
+  const b = e.target.closest("button.copy"); if(!b) return;
+  try { await navigator.clipboard.writeText(b.dataset.p); b.textContent = "Copied"; }
+  catch { b.textContent = "Select the text to copy"; }
+  setTimeout(()=>{ b.textContent = "Copy prompt"; }, 1800);
+});
+</script>
+</body>
+</html>
