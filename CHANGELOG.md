@@ -46,4 +46,9 @@ All changes to the kit are recorded here. Format: version · date · what change
 ## v1.0.1 · 2026-11-17 · by Dimitar Bidzhekov
 - Author stamp "by Dimitar Bidzhekov" added everywhere: each SKILL.md (frontmatter metadata.author and a line under the heading), all references, examples, the README, the guide page, the session_report.py output, Google Docs titles and headings, and every slide footer.
 - Drive: relabelled the Install files folder (the zips are the skills themselves and are uploaded still zipped); added the "Skill instructions (readable copies)" folder with each SKILL.md as a Google Doc; replaced the stamped Docs, zips and presentation (old copies moved to the trash).
-- GitHub: prepared as a standalone repository (mep-skill-kit), separate from the HowToAI application.
+- GitHub: published publicly as the standalone repository HowToA1/mep-skill-kit, separate from the HowToAI application.
+
+## v1.0.2 · 2026-11-17 · by Dimitar Bidzhekov
+- Security check before publishing: no email addresses, passwords, API keys or tokens, private links (Drive, Vercel, Supabase), personal social handles or other people's names in any file, inside the skill zips, in the presentation's file properties or in the commit history. Commits use GitHub's no-reply address.
+- Fixed: presentation/build-deck.js contained file paths from the build machine; replaced them with portable settings.
+- Repository published publicly with a description and topics.
